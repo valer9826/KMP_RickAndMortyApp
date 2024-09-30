@@ -1,4 +1,3 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -7,6 +6,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -38,6 +38,12 @@ kotlin {
 
             //Koin
             implementation(libs.koin.android)
+
+            //Ktor
+            implementation(libs.ktor.client.okhttp)
+
+            //Coroutines
+            implementation(libs.kotlinx.coroutines.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -56,8 +62,18 @@ kotlin {
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.composeVM)
+
+            //Ktor
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.serialization.json)
+            implementation(libs.ktor.client.negotiation)
+
+            //Coroutines
+            implementation(libs.kotlinx.coroutines.core)
         }
         iosMain.dependencies {
+            //Ktor
+            implementation(libs.ktor.client.darwin)
 
         }
     }
