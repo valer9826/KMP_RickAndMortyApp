@@ -70,6 +70,17 @@ kotlin {
 
             //Coroutines
             implementation(libs.kotlinx.coroutines.core)
+
+            //ViewModel
+            implementation(libs.viewmodel.compose)
+
+            //Coil
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor)
+
+            //Paging3
+            implementation(libs.paging.compose.common)
+            implementation(libs.paging.common)
         }
         iosMain.dependencies {
             //Ktor

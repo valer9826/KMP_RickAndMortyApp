@@ -7,6 +7,7 @@ fun CharacterResponse.toCharacterModel(): CharacterModel {
     return CharacterModel(
         id = this.id,
         isAlive = this.status.contains("Alive"),
-        image = this.image
+        image = this.image,
+        name = this.name
     )
 }
