@@ -1,6 +1,7 @@
 package com.valito.rickmortyapp.di
 
 import com.valito.rickmortyapp.data.remote.ApiService
+import com.valito.rickmortyapp.data.remote.paging.CharacterPagingSource
 import com.valito.rickmortyapp.data.repository.RepositoryImpl
 import com.valito.rickmortyapp.domain.Repository
 import io.ktor.client.HttpClient
@@ -32,7 +33,7 @@ val dataModule = module {
     }
     factoryOf(::ApiService)
 //    factory<ApiService> { get(ApiService::class) }
-
-    factory<Repository> { RepositoryImpl(get()) }
+    factory<Repository> { RepositoryImpl(get(), get()) }
+    factoryOf(::CharacterPagingSource)
 }
 

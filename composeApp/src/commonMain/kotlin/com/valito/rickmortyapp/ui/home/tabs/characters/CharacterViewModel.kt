@@ -26,7 +26,7 @@ class CharacterViewModel(
                 getRandomCharacterUC()
             }
             _state.update {
-                it.copy(character = result)
+                it.copy(characterOfTheDay = result)
             }
         }
         getAllCharacters()
